@@ -28,11 +28,33 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+@keyframes showAlert {
+  0%  {
+    top : -100px;
   }
-  to {
-    transform: rotate(360deg);
+
+  20% {
+    top : 12px;
   }
+  80% {
+    top : 12px;
+  }
+
+  100% {
+    top : -100px;
+  }
+}
+
+.alert {
+  position : absolute;
+  left : 0;
+  right : 0;
+  margin : auto;
+  max-width: 450px;
+  animation-name: showAlert;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 5s;
 }

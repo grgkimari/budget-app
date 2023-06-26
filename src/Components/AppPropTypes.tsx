@@ -1,9 +1,13 @@
 import { type } from "os"
 export const ADD_EXPENSE = "ADD_EXPENSE"
 export const DELETE_EXPENSE = "DELETE_EXPENSE "
+
+export const RESET_ALERT = "RESET_ALERT"
 export type ActionAlertPropType = {
     title : string
     message : string
+    severity : "error" | "warning" | "info" | "success" 
+    dispatch : (action : object) => void
 }
 
 export type ReducerActionType = {
@@ -15,7 +19,7 @@ export type ReducerActionType = {
 }
 
 export interface ExpenseItem  {
-    id : number
+    id : string
     name : string
     amount : number | null
 }
@@ -26,5 +30,15 @@ export type GlobalStateType = {
         showAlert : boolean
         title : string
         message : string
+        severity : "error" | "warning" | "info" | "success" 
     }
+}
+
+export type ExpenseListProps = {
+expenses : ExpenseItem[],
+dispatch : (action : object) => void
+}
+
+export type ExpenseFormProps = {
+    dispatch : (action : object) => void
 }
