@@ -15,7 +15,8 @@ const HeaderCellStyles = {
 
 const ExpenseList = (props : ExpenseListProps) => {
   return (
-    <Table>
+    <>
+    {props.expenses.length > 0 && <Table>
       <TableHead>
         <TableRow sx={{
           bgcolor : 'black',
@@ -66,7 +67,8 @@ const ExpenseList = (props : ExpenseListProps) => {
           
         })}
       </TableBody>
-    </Table>
+    </Table>}
+    </>
   )
 }
 

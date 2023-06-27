@@ -23,14 +23,22 @@ const mainReducer = (state : any, action : any) => {
             }
         }
         case DELETE_EXPENSE :
+            let expenseName = null
             return {
                 
-                expenses : state.expenses.filter((expense : ExpenseItem) => expense.id !== action.payload.id),
+                expenses : state.expenses.filter((expense : ExpenseItem) => {
+                    if(expense.id !== action.payload.id){
+                        return true
+                    }
+                    else{
+                        expenseName = expense.name
+                    }
+                }),
 actionProps : {
     showAlert : true,
     severity : "error",
     title : "Deleted",
-    message : "Expense deleted"
+    message : `Expense '${expenseName}' deleted`
 }
             }
     default:
