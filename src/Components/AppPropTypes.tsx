@@ -1,7 +1,7 @@
 import { type } from "os"
 export const ADD_EXPENSE = "ADD_EXPENSE"
 export const DELETE_EXPENSE = "DELETE_EXPENSE "
-
+export const SHOW_FORM_ERROR = "SHOW_FORM_ERROR"
 export const RESET_ALERT = "RESET_ALERT"
 export type ActionAlertPropType = {
     title : string

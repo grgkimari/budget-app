@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, DELETE_EXPENSE, ExpenseItem, RESET_ALERT } from './AppPropTypes'
+import { ADD_EXPENSE, DELETE_EXPENSE, ExpenseItem, RESET_ALERT, SHOW_FORM_ERROR } from './AppPropTypes'
 
 
 const mainReducer = (state : any, action : any) => {
@@ -42,6 +42,16 @@ actionProps : {
     message : `Expense '${expenseName}' deleted`
 }
             }
+    case SHOW_FORM_ERROR:
+        return {
+            ...state,
+            actionProps : {
+                showAlert : true,
+                severity : "error",
+                title : action.payload.title,
+                message : action.payload.message
+            }
+        }
     default:
         return {
             ...state

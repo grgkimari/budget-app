@@ -5,7 +5,7 @@ import TableRow from '@mui/material/TableRow/TableRow'
 import TableCell from '@mui/material/TableCell/TableCell'
 import Typography from '@mui/material/Typography/Typography'
 import { DELETE_EXPENSE, ExpenseListProps } from './AppPropTypes'
-import { Button, IconButton } from '@mui/material'
+import { Button, IconButton, TableContainer } from '@mui/material'
 import { Delete } from '@mui/icons-material'
 
 const HeaderCellStyles = {
@@ -16,7 +16,12 @@ const HeaderCellStyles = {
 const ExpenseList = (props : ExpenseListProps) => {
   return (
     <>
-    {props.expenses.length > 0 && <Table>
+    {props.expenses.length > 0 && <TableContainer sx={{
+      height : "320px",
+      overflow : "scroll"
+    }}> <Table sx={{
+      height : "maxContent"
+    }}>
       <TableHead  sx={{
       top : '0',
       left : '0',
@@ -87,7 +92,7 @@ const ExpenseList = (props : ExpenseListProps) => {
           </TableCell>
         </TableRow>
       </TableBody>
-    </Table>}
+    </Table></TableContainer>}
     </>
   )
 }
