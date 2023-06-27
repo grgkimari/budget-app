@@ -17,7 +17,12 @@ const ExpenseList = (props : ExpenseListProps) => {
   return (
     <>
     {props.expenses.length > 0 && <Table>
-      <TableHead>
+      <TableHead  sx={{
+      top : '0',
+      left : '0',
+      zIndex : '2',
+      position : 'sticky'
+    }}>
         <TableRow sx={{
           bgcolor : 'black',
           color : "whitesmoke"
@@ -66,6 +71,21 @@ const ExpenseList = (props : ExpenseListProps) => {
           )
           
         })}
+        <TableRow sx={{
+          backgroundColor : "gray"
+        }}>
+          <TableCell colSpan={2}>
+            <Typography variant='h5'>Total</Typography>
+          </TableCell>
+          <TableCell  colSpan={2}>
+          <Typography variant='h6'>{props.expenses.reduce((accumulator, expense) => {
+              if (expense.amount !== null) {
+                return accumulator + expense.amount;
+              }
+              return accumulator;
+            }, 0)}</Typography>
+          </TableCell>
+        </TableRow>
       </TableBody>
     </Table>}
     </>

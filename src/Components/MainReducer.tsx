@@ -32,6 +32,7 @@ const mainReducer = (state : any, action : any) => {
                     }
                     else{
                         expenseName = expense.name
+                        return false
                     }
                 }),
 actionProps : {
